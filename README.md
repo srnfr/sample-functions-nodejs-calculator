@@ -2,19 +2,14 @@
 
 ## Introduction
 
-This repository contains a simple calculator showing how to use state, Node.js packages, HTML, and functions. You can deploy it on DigitalOcean's App Platform as a Serverless Function component.
-
-**Note: This feature is currently in a [limited beta release](https://docs.digitalocean.com/products/platform/product-lifecycle/#beta). Following these steps may result in charges for the use of DigitalOcean services.**
+This repository contains a simple calculator showing how to use state, Node.js packages, HTML, and functions. You can deploy it on DigitalOcean's App Platform as a Serverless Function component. Documentation is available at https://docs.digitalocean.com/products/functions.
 
 ### Requirements
 
 * You need a DigitalOcean account. If you don't already have one, you can sign up at [https://cloud.digitalocean.com/registrations/new](https://cloud.digitalocean.com/registrations/new).
-* You need to have access to the beta release of App Platform Serverless Functions. You can sign up for notifications about beta and early access releases [using this form](https://www.digitalocean.com/nimbella).
-
-## Deploying the Function
-
-During the beta, documentation for Serverless Functions will be available to beta participants only in the [Serverless Functions Closed Beta Google Doc](https://docs.google.com/document/d/1qhxnl4ndb0Jh2WkNnNLa2lAUo6u7EAfLyBlUsaPZA0Y). Please refer to this document for instructions on how to deploy Serverless Functions in App Platform.
+* To deploy from the command line, you will need the [DigitalOcean `doctl` CLI](https://github.com/digitalocean/doctl/releases).
+* This project uses a Redis instance to maintain state. You will need to provision a DBaaS instance and provide the `DATABASE_URL` credentials to deploy and use the function.
 
 ### Learn More
 
-You can learn more about App Platform and how to manage and update your application in [the official App Platform Documentation](https://www.digitalocean.com/docs/app-platform/).
+You can learn more about Functions and App Platform integration in [the official App Platform Documentation](https://www.digitalocean.com/docs/app-platform/).
