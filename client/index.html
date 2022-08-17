@@ -29,7 +29,10 @@
         var txt = $("#mytext").val().trim()
         var FUNCTION_API_URL = "%%FUNCTION_API_URL%%";
         let apiHost = FUNCTION_API_URL;
-        let src = apiHost + '/calc/eval.json?text=' + encodeURIComponent(txt)
+        // for DO
+        //let src = apiHost + '/calc/eval.json?text=' + encodeURIComponent(txt)
+        // For Netlify
+        let src = apiHost + '/.netlify/functions/eval?text=' + encodeURIComponent(txt)
         $.get(src, function(jsonResult) { update(jsonResult) })
       }
       function update(jsonResult) {
