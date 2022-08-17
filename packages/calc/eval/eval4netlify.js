@@ -34,7 +34,7 @@ exports.handler = async function main(event, context, callback) {
       console.log("returning response...");
       callback(null, {
              statusCode: 200,
-             body: JSON.stringify({ count: ${count}, result: ${text} }),
+             body: JSON.stringify({ count: `${count}`, result: `${text}` }),
              headers: {
                'content-type': 'application/json',
                'cache-control': 'Cache-Control: max-age=60, public'
