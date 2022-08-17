@@ -17,7 +17,7 @@ exports.handler = async function main(event, context, callback) {
       return redis
         .get(key)
         .then((reply) => {
-          updateAndReply(redis, asCount(reply), result));
+          updateAndReply(redis, asCount(reply), result);
           const body = { count: count, result: text };
           const response = {
              statusCode: 200,
