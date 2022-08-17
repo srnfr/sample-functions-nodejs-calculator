@@ -10,7 +10,7 @@ exports.handler = async function main(event, context) {
   return redis
     .connect()
     .then(() => {
-      const expr = queryStringParameters.text;
+      const expr = event.queryStringParameters.text;
       console.log("expr : ", expr);
       const result = evaluate(expr);
       console.log("result : ", result);
