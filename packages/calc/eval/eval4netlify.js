@@ -2,10 +2,10 @@ const expeval = require("expression-eval");
 const { createClient } = require("redis");
 const key = "counter";
 
-exports.handler = async function main(event, context) {
+exports.handler = async function main(event, context, callback) {
   const redis = createClient({url: process.env.DATABASE_URL})
   //const redis = createClient({url: args.DATABASE_URL_PARAM})
-  console.log("Redis : ", process.env.DATABASE_URL);
+  //console.log("Redis : ", process.env.DATABASE_URL);
 
   return redis
     .connect()
@@ -52,7 +52,17 @@ function updateAndReply(redis, count, text) {
   return redis
     .set(key, count + 1)
     .then(() => {
-      return { count: count, result: text };
+      const body = { count: count, result: text };
+      const response = {
+        statusCode: 200,
+        body: body,
+        headers: {
+          'content-type': 'application/json',
+          'cache-control': 'Cache-Control: max-age=60, public'
+         }
+      }
+      callback(null, response)
+    
     })
     .catch((err) => {
       return { count: count, result: text };
