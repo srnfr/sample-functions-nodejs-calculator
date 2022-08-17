@@ -1,1 +1,6 @@
-{}
+{
+  "dependencies": {
+    "expression-eval": "^5.0.0",
+    "redis": "^4.2.0"
+  }
+}

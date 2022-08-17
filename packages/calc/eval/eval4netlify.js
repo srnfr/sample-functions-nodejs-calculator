@@ -17,7 +17,9 @@ exports.handler = async function main(event, context, callback) {
       return redis
         .get(key)
         .then((reply) => {
-          result updateAndReply(redis, asCount(reply), result);
+          console.log("returning response...");
+          return updateAndReply(redis, asCount(reply), result);
+          console.log("au retour de updateandreply...");
         })
         .catch((err) => {
           return updateAndReply(redis, 0, result);
@@ -30,16 +32,6 @@ exports.handler = async function main(event, context, callback) {
     })
     .finally(() => {
       redis.disconnect();
-
-      console.log("returning response...");
-      callback(null, {
-             statusCode: 200,
-             body: JSON.stringify({ count: `${count}`, result: `${text}` }),
-             headers: {
-               'content-type': 'application/json',
-               'cache-control': 'Cache-Control: max-age=60, public'
-             },
-           });
     });
 }
 
@@ -63,9 +55,14 @@ function updateAndReply(redis, count, text) {
   return redis
     .set(key, count + 1)
     .then(() => {
-        return { count: count, result: text };    
-    })
+      console.log("inside updateandreply...");
+      return { 
+        statusCode: 200,
+        body: JSON.stringify({count: count, result: text })    
+      }
+    }
+    )
     .catch((err) => {
       return { count: count, result: text };
-    });
+    })
 }
