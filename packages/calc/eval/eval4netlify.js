@@ -2,7 +2,7 @@ const expeval = require("expression-eval");
 const { createClient } = require("redis");
 const key = "counter";
 
-exports.handler = async function main(event,context) {
+exports.handler = async function main(event, context) {
   const redis = createClient({url: process.env.DATABASE_URL})
   //const redis = createClient({url: args.DATABASE_URL_PARAM})
   console.log("Redis : ", process.env.DATABASE_URL);
@@ -10,7 +10,7 @@ exports.handler = async function main(event,context) {
   return redis
     .connect()
     .then(() => {
-      const expr = event.text;
+      const expr = queryStringParameters.text;
       console.log("expr : ", expr);
       const result = evaluate(expr);
       console.log("result : ", result);
