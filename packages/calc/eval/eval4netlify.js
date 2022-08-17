@@ -11,7 +11,9 @@ exports.handler = async function main(event,context) {
     .connect()
     .then(() => {
       const expr = event.text;
+      console.log("expr : ", expr);
       const result = evaluate(expr);
+      console.log("result : ", result);
       return redis
         .get(key)
         .then((reply) => {
