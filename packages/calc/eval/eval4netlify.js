@@ -19,16 +19,15 @@ exports.handler = async function main(event, context, callback) {
         .then((reply) => {
           updateAndReply(redis, asCount(reply), result);
           const body = { count: count, result: text };
-          const response = {
+          console.log("returning response...");
+          return {
              statusCode: 200,
-             body: body,
+             body: JSON.stringify(body),
              headers: {
                'content-type': 'application/json',
                'cache-control': 'Cache-Control: max-age=60, public'
              },
            };
-          console.log("return response...");
-          return response;
         })
         .catch((err) => {
           return updateAndReply(redis, 0, result);
