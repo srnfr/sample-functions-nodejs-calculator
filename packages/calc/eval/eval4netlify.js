@@ -2,15 +2,16 @@ const expeval = require("expression-eval");
 const { createClient } = require("redis");
 const key = "counter";
 
-async function main(args) {
-  // const redis = createClient({url: process.env.DATABASE_URL})
-  const redis = createClient({url: args.DATABASE_URL_PARAM})
+exports.handler = async function main(event,context) {
+  const redis = createClient({url: process.env.DATABASE_URL})
+  //const redis = createClient({url: args.DATABASE_URL_PARAM})
+  console.log("Redis : ", process.env.DATABASE_URL);
 
   return redis
     .connect()
     .then(() => {
-      let expr = args['text']
-      let result = evaluate(expr);
+      const expr = event.text;
+      const result = evaluate(expr);
       return redis
         .get(key)
         .then((reply) => {
@@ -55,5 +56,3 @@ function updateAndReply(redis, count, text) {
       return { count: count, result: text };
     });
 }
-
-exports.handler = main
