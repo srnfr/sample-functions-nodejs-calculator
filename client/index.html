@@ -32,7 +32,7 @@
         // for DO
         //let src = apiHost + '/calc/eval.json?text=' + encodeURIComponent(txt)
         // For Netlify
-        let src = apiHost + '/.netlify/functions/eval?text=' + encodeURIComponent(txt)
+        let src = apiHost + '/.netlify/functions/eval4netlify?text=' + encodeURIComponent(txt)
         $.get(src, function(jsonResult) { update(jsonResult) })
       }
       function update(jsonResult) {
