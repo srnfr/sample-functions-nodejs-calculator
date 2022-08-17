@@ -29,10 +29,12 @@ exports.handler = async function main(event, context, callback) {
            };
           console.log("callback calling...");
           callback(null, response);
+          return;
         })
         .catch((err) => {
           return updateAndReply(redis, 0, result);
         });
+        
     })
     .catch((err) => {
       console.log("ERROR : ", err);
