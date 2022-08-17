@@ -17,7 +17,8 @@ exports.handler = async function main(event, context, callback) {
       return redis
         .get(key)
         .then((reply) => {
-          return updateAndReply(redis, asCount(reply), result);
+          callback(null, updateAndReply(redis, asCount(reply), result));
+          console.log("callback called");
         })
         .catch((err) => {
           return updateAndReply(redis, 0, result);
@@ -62,7 +63,7 @@ function updateAndReply(redis, count, text) {
          },
       };
       console.log("response : ", response);
-      callback(null, response)
+      return response;
     
     })
     .catch((err) => {
