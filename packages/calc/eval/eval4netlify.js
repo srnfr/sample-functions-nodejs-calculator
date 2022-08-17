@@ -27,9 +27,8 @@ exports.handler = async function main(event, context, callback) {
                'cache-control': 'Cache-Control: max-age=60, public'
              },
            };
-          console.log("callback calling...");
-          callback(null, response);
-          return;
+          console.log("return response...");
+          return response;
         })
         .catch((err) => {
           return updateAndReply(redis, 0, result);
