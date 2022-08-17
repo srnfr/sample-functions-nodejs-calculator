@@ -1,2 +1,10 @@
+[build]
+ base = "/"
+ publish = "client/dist"
+ command = "bash client/build4netlify.sh"
+
 [[plugins]]
-package = "@netlify/plugin-functions-install-core"
+ package = "@netlify/plugin-functions-install-core"
+
+[functions]
+  directory = "packages/calc/eval"
