@@ -59,8 +59,9 @@ function updateAndReply(redis, count, text) {
         headers: {
           'content-type': 'application/json',
           'cache-control': 'Cache-Control: max-age=60, public'
-         }
-      }
+         },
+      };
+      console.log("response : ", response);
       callback(null, response)
     
     })
