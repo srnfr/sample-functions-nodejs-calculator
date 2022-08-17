@@ -58,7 +58,11 @@ function updateAndReply(redis, count, text) {
       console.log("inside updateandreply...");
       return { 
         statusCode: 200,
-        body: JSON.stringify({count: count, result: text })    
+        body: JSON.stringify({ count: count, result: text }),
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }    
       }
     }
     )
