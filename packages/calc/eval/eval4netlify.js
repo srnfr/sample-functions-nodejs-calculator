@@ -10,6 +10,9 @@ exports.handler = async function main(event, context, callback) {
   return redis
     .connect()
     .then(() => {
+      // Start timing now
+      console.time("concatenation");
+      //
       const expr = event.queryStringParameters.text;
       console.log("expr : ", expr);
       const result = evaluate(expr);
@@ -20,6 +23,8 @@ exports.handler = async function main(event, context, callback) {
           console.log("returning response...");
           return updateAndReply(redis, asCount(reply), result);
           console.log("au retour de updateandreply...");
+          // ... and stop.
+          console.timeEnd("concatenation");
         })
         .catch((err) => {
           return updateAndReply(redis, 0, result);
