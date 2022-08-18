@@ -46,7 +46,12 @@
         // For Netlify
         let apiHost = "https://serverless-calc.netlify.app"
         let src = apiHost + '/.netlify/functions/eval4netlify?text=' + encodeURIComponent(txt)
+        // Start timing now
+        console.time("serverless-call");
+        //
         $.get(src, function(jsonResult) { update(jsonResult) })
+        // End timing now
+        console.timeEnd("serveless call");
       }
       function update(jsonResult) {
         let result = jsonResult['result']

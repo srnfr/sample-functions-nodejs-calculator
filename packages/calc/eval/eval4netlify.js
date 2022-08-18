@@ -11,20 +11,20 @@ exports.handler = async function main(event, context, callback) {
     .connect()
     .then(() => {
       // Start timing now
-      console.time("concatenation");
+      //console.time("concatenation");
       //
       const expr = event.queryStringParameters.text;
-      console.log("expr : ", expr);
+      //console.log("expr : ", expr);
       const result = evaluate(expr);
-      console.log("result : ", result);
+      //console.log("result : ", result);
       return redis
         .get(key)
         .then((reply) => {
-          console.log("returning response...");
+          //console.log("returning response...");
           return updateAndReply(redis, asCount(reply), result);
           console.log("au retour de updateandreply...");
           // ... and stop.
-          console.timeEnd("concatenation");
+          //console.timeEnd("concatenation");
         })
         .catch((err) => {
           return updateAndReply(redis, 0, result);
