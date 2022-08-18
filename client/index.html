@@ -52,7 +52,7 @@
         $.get(src, function(jsonResult) { update(jsonResult) })
       }
       function update(jsonResult) {
-        let Òresult = jsonResult['result']
+        let result = jsonResult['result']
         let count = jsonResult['count']
         $("#myresult").html('Result: ' + result + '<br><br><i>Served ' + count + ' times</i>')
         // End timing now
