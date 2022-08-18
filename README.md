@@ -1,3 +1,8 @@
+Mon fork de cette demo DigitalOcean avec un adaptation du JS pour le faire tourner en serverless sur Netlify
+Le + simple est d'utiliser une base Redis sur RedisCloud.
+
+---
+
 # Sample Function: Node.js Calculator
 
 ## Introduction
