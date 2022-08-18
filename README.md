@@ -1,5 +1,7 @@
-Mon fork de cette demo DigitalOcean avec un adaptation du JS pour le faire tourner en serverless sur Netlify
-Le + simple est d'utiliser une base Redis sur RedisCloud.
+
+Mon fork de cette demo DigitalOcean avec une adaptation du JS pour la faire tourner en serverless sur [Netlify](https://www.netlify.com/) (le FreeTier permet de laisser tourner l'appli).
+
+Le + simple est d'utiliser une base Redis sur [RedisCloud](https://redis.com/).
 
 ---
 
