@@ -50,13 +50,13 @@
         console.time("serverless-call");
         //
         $.get(src, function(jsonResult) { update(jsonResult) })
-        // End timing now
-        console.timeEnd("serverless-call");
       }
       function update(jsonResult) {
-        let result = jsonResult['result']
+        let Òresult = jsonResult['result']
         let count = jsonResult['count']
         $("#myresult").html('Result: ' + result + '<br><br><i>Served ' + count + ' times</i>')
+        // End timing now
+        console.timeEnd("serverless-call");
       }
     </script>
   </body>
