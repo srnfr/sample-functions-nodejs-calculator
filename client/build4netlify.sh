@@ -4,6 +4,7 @@
 cd client
 echo "FUNCTION_API_URL = ${FUNCTION_API_URL}"
 echo "DEPLOY_URL =  ${DEPLOY_URL}"
+echo "DATABASE_URL = ${DATABASE_URL}"
 ##
 
 rm -rf dist/
