@@ -4,7 +4,7 @@ const key = "counter";
 
 exports.handler = async function main(event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
-  const redis = createClient({url: process.env.DATABASE_URL})
+  const redis = createClient({url: process.env.DATABASE_URL});
   //const redis = createClient({url: args.DATABASE_URL_PARAM})
   console.log("Redis : ", process.env.DATABASE_URL);
 
