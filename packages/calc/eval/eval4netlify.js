@@ -67,7 +67,8 @@ function updateAndReply(redis, count, text) {
         body: JSON.stringify({ count: count, result: text }),
         headers : { 
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*' // Allow from anywhere 
          }    
       }
     }
